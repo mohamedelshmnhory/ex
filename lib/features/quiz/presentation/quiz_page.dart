@@ -4,9 +4,6 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 
 import '../domain/quiz_brain.dart';
 
-
-QuizBrain quizBrain = QuizBrain();
-
 class QuizPage extends StatefulWidget {
   const QuizPage({Key? key}) : super(key: key);
 
@@ -15,6 +12,7 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  QuizBrain quizBrain = QuizBrain();
   List<Icon> scoreKeeper = [];
   String answer = '';
   String userName = '';

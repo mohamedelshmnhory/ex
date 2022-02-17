@@ -1,5 +1,6 @@
+import 'package:ex/features/quiz/data/models/question.dart';
 
-import 'package:ex/features/quiz/models/question.dart';
+import '../data/datasource/data_source.dart';
 
 class QuizBrain {
   int _questionNumber = 0;
@@ -31,13 +32,7 @@ class QuizBrain {
     return _questionBank[_questionNumber].questionAnswer;
   }
 
-  bool get isFinished {
-    if (_questionNumber >= _questionBank.length - 1) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  bool get isFinished => _questionNumber >= _questionBank.length - 1;
 
   void reset() {
     _shuffle();
@@ -51,26 +46,5 @@ class QuizBrain {
     }
   }
 
-  final List<Question> _questionBank = [
-    Question(
-        answers: ['7', '9', '4', '2'],
-        questionText: '5 + 2 ?',
-        questionAnswer: '7'),
-    Question(
-        answers: ['20', '5', '8', '7'],
-        questionText: '5 + 15 ?',
-        questionAnswer: '20'),
-    Question(
-        answers: ['11', '2', '5', '8'],
-        questionText: '9 + 2 ?',
-        questionAnswer: '11'),
-    Question(
-        answers: ['22', '5', '6', '8'],
-        questionText: '20 + 2 ?',
-        questionAnswer: '22'),
-    Question(
-        answers: ['10', '2', '5', '8'],
-        questionText: '5 + 5 ?',
-        questionAnswer: '10'),
-  ];
+  final List<Question> _questionBank = Data.questionBank;
 }
